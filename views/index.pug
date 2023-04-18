@@ -1,0 +1,42 @@
+doctype html
+html(lang="en")
+    
+    include includes/head
+
+    body
+        div.wrapper
+            form(action="/" method="POST") 
+
+                fieldset 
+                    legend Folder Creator Tool
+
+                    fieldset#dirfield
+                        legend File Directory 
+                        input(type="text" placeholder="C:/folder/sample" name="folderdir").in_dir
+                    
+                    fieldset#folderfield
+                        legend Folders 
+                        input(type="text" placeholder="Folder Name" name="foldername").in_foldername
+                        label(for="hassub") Has subfolders?
+                        input(type="checkbox" name="hassub").hassub
+                        div.breakrow
+                        fieldset#subfolderfield.nostyle.hidden
+                            label(for="foldercount") Folder count
+                            input(type="number" name="foldercount" min="1" max="100" value="1")
+                            input(type="text" placeholder="Prefix" name="subfolderprefix")
+                            
+                    label(for="withfiles") With files?
+                    input(type="checkbox" name="withfiles").withfiles
+
+                    fieldset#filefield
+                        legend Files 
+                        input(type="number" min="1" placeholder="Start file #" name="filefrom")
+                        input(type="number" min="1" placeholder="End file #" name="fileto")
+                        input(type="text" placeholder="Prefix" name="fileprefix")
+                        label(for="withfile") With content?
+                        input(type="checkbox" name="withfile").withfile
+                        input(type="file" name="fileupload")#fileuploadfield.hidden
+                        
+                    input(type="submit" name="submit")
+
+    include includes/footer
